@@ -173,6 +173,7 @@ run frontend webpage: `https://localhost:7172/`
 - **PROG2230 - Programming: Microsoft Web Technologies** (Fall 2023 - Section 1)
 - Frontend layout and Razor Views design referenced from previous ASP.NET Core MVC assignments:
   - `JuhwanSeo_Problem_Asst3` - CRUD structure and UI patterns and layout design
-    ![JuhwanSeo_Problem_Asst3](https://1drv.ms/i/c/a57dd34f56d5bd05/IQSapbENKE9ISZhuTmqUP1E9Ac_qTxw4mwfFXLJ-reTtC7U?width=1215&height=676)
+    ![JuhwanSeo_Problem_Asst3](img/image02.png)
+    
   - `TransactionRecordApp` - Login/logout UI patterns and layout design
-    ![TransactionRecordApp](https://1drv.ms/i/c/a57dd34f56d5bd05/IQRtWuYoA1MNSI2dKF2FFLLPAYG-UPOvh4bfzG2IvdBC-nA)
+    ![TransactionRecordApp](img/image01.png)
