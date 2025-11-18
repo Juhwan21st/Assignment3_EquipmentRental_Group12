@@ -25,6 +25,23 @@ This project enhances the previous Midterm Equipment Rental Management System by
 
 ### How to Run the Application
 
+#### Option A. One-Click Run (Visual Studio 2022, Ver.17.11 +)
+
+If the installed Visual Studio 2022 is newer than Ver.17.11:
+
+1. Open the solution file `Assignment3_EquipmentRental_Group12.sln` in Visual Studio.
+2. In the **Debug Profile dropdown** (next to the Run/Debug button),  
+   select: `Run-API-and-UI` (Multi-project launch profile)
+3. Click **Start** (or Press **F5**) to launch both API and UI projects together.
+   - API will start at: `https://localhost:7119/swagger`
+   - UI will start at: `https://localhost:7172/`
+
+> **Note:** If there is no option for multi-project profile, update Visual Studio, or follow the Option B for manual run.
+
+---
+
+#### Option B. Manual Run (for older Visual Studio)
+
 **Step 1: Start Backend API**
 
 ```powershell
@@ -32,7 +49,7 @@ cd Assignment3_EquipmentRental_API_Group12
 dotnet run
 ```
 
-run api: `https://localhost:7119/swagger`
+API will start at: `https://localhost:7119/swagger`
 
 **Step 2: Start Frontend UI**
 
@@ -41,7 +58,7 @@ cd Assignment3_EquipmentRental_UI_Group12
 dotnet run
 ```
 
-run frontend webpage: `https://localhost:7172/`
+UI will start at: `https://localhost:7172/`
 
 ---
 
@@ -163,6 +180,12 @@ run frontend webpage: `https://localhost:7172/`
 
 ## References
 
+### Multi-Project Startup and Launch Profile(.slnLaunch) References
+
+- Martin Zikmund. (2024, March 26). _Using Multi-Project Launch Profiles in Visual Studio_ [Video]. YouTube. https://www.youtube.com/watch?v=Zj2YGHQ9a94&t=1s
+- Microsoft. (2024). _How to: Set multiple startup projects in Visual Studio_. Microsoft Learn. https://learn.microsoft.com/en-us/visualstudio/ide/how-to-set-multiple-startup-projects?view=vs-2022
+- JetBrains. (2025). _Support extracting Multi-Project Launch Profiles from .slnLaunch file (Issue RIDER-114145)_. JetBrains YouTrack. https://youtrack.jetbrains.com/projects/RIDER/issues/RIDER-114145/Support-extracting-Multi-Project-Launch-Profiles-from-.slnLaunch-file
+
 ### Week 9 Class Materials
 
 - Lecture Note(that I made during the class) and the practice project examples
@@ -174,6 +197,5 @@ run frontend webpage: `https://localhost:7172/`
 - Frontend layout and Razor Views design referenced from previous ASP.NET Core MVC assignments:
   - `JuhwanSeo_Problem_Asst3` - CRUD structure and UI patterns and layout design
     ![JuhwanSeo_Problem_Asst3](img/image02.png)
-    
   - `TransactionRecordApp` - Login/logout UI patterns and layout design
     ![TransactionRecordApp](img/image01.png)
