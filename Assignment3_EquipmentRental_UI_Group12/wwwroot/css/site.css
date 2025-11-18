@@ -1,22 +1,76 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/* Set header background color (#f6bd60 - warm yellow/orange tone for branding) */
+header {
+    background-color: #f6bd60;
+}
+    /* Style header list items (navigation menu items) */
+    header li {
+        border-radius: 0.5em;
+        color: White;
+    }
+        /* Change background color when hovering over header list items (hover effect) */
+        header li:hover {
+            background-color: orange;
+        }
+
+/* login content container - centered on screen */
+.google-login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+/* login content box - clean centered card */
+.google-login-box {
+    text-align: center;
+    max-width: 800px;
+    padding: 3rem 2rem;
+}
+
+/* login button - uses project theme color (#f6bd60) */
+.btn-google-login {
+    background-color: #f6bd60;
+    color: white;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(246, 189, 96, 0.3);
+}
+
+    /* login button hover effect - slightly darker color */
+    .btn-google-login:hover {
+        background-color: #f5a742;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(246, 189, 96, 0.4);
+        color: white;
+    }

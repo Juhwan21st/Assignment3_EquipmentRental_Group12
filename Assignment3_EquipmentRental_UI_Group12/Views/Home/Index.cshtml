@@ -1,8 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@* Google Login Section - Google OAuth authentication to be integrated in the future *@
+<div class="google-login-container">
+	<div class="google-login-box">
+		<h3 class="mb-3" style="color: #2c3e50; font-weight: 600; font-size: 1.75rem;">Welcome to Equipment Rental App!</h3>
+		<p class="mb-4" style="color: #6c757d;">Continue with your Google account</p>
+		<a href="/auth/login" class="btn-google-login">
+			@* Google logo image *@
+			<img src="https://www.google.com/favicon.ico" alt="Google" style="margin-right: 10px; width: 20px; height: 20px;">
+			Sign in with Google
+		</a>
+	</div>
 </div>
