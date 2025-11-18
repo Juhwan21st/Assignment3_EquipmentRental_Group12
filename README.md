@@ -8,6 +8,8 @@
 **Programmed by:** Juhwan Seo [8819123]
 
 ![HomePage](img/app_home.png)
+![HomePage](img/admin.png)
+![HomePage](img/user.png)
 
 ---
 
