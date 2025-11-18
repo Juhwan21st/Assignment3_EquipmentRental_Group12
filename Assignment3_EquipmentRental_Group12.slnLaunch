@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Run-API-and-UI",
+    "Projects": [
+      {
+        "Path": "Assignment3_EquipmentRental_API_Group12\\Assignment3_EquipmentRental_API_Group12.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Assignment3_EquipmentRental_UI_Group12\\Assignment3_EquipmentRental_UI_Group12.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]
