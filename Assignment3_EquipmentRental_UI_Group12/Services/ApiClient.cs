@@ -17,20 +17,18 @@ namespace Assignment3_EquipmentRental_UI_Group12.Services
 			_jwtService = jwtService;
 		}
 
+		// Internal method that generates JWT token and adds it to HTTP request header
 		private void AttachToken(ClaimsPrincipal user)
 		{
 			var token = _jwtService.GenerateToken(user);
 			_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 		}
 
-		// GET
 		public async Task<string> GetProtectedDataAsync(string path, ClaimsPrincipal user)
 		{
 			// attach JWT token to header
 			AttachToken(user);
 			return await _httpClient.GetStringAsync(path);
 		}
-
-		// Other methods (POST, PUT, DELETE) can be added here similarly
 	}
 }

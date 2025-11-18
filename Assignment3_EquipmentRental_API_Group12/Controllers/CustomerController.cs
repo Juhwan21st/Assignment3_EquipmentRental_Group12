@@ -5,91 +5,102 @@ using Assignment3_EquipmentRental_API_Group12.UnitOfWork;
 
 namespace Assignment3_EquipmentRental_API_Group12.Controllers
 {
-    /** Customer Management Endpoints
-     * GET /api/customers - List all customers (Index page)
-     * GET /api/customers/{id} - Get customer details (Details page)
-     * POST /api/customers - Create customer (form)
-     * PUT /api/customers/{id} - Update customer (Edit form)
-     * DELETE /api/customers/{id} - Delete customer (Index)
-     * GET /api/customers/{id}/rentals - Get customer rental history (My Rentals)
-     * GET /api/customers/{id}/activate-rental - Check active rental (Dashboard)
+	/** Customer Management Endpoints (4 Marks)
+     *  
+     *  GET /api/customers - List all customers [Admin only]
+     *  GET /api/customers/{id} - Get customer details [User: self]
+     *  POST /api/customers - Create customer [Admin only]
+     *  PUT /api/customers/{id} - Update customer [Admin: role] [User: self, Name/PW]
+     *  DELETE /api/customers/{id} - Delete customer [Admin only]
+     *  GET /api/customers/{id}/rentals - Get customer rental history [User: self]
+     *  GET /api/customers/{id}/active-rental - Check active rental [User: self]
      */
 
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CustomerController : ControllerBase
-    {
-        private readonly IUnitOfWork _unitOfWork;   // instance of IUnitOfWork
+	[Route("api/[controller]")]
+	[ApiController]
+	public class CustomerController : ControllerBase
+	{
+		// IUnitOfWork instance
+		private readonly IUnitOfWork _unitOfWork;
 
-        // Constructor
-        public CustomerController(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+		// Constructor with UnitOfWork injection
+		public CustomerController(IUnitOfWork unitOfWork)
+		{
+			_unitOfWork = unitOfWork;
+		}
 
-        // GET /api/customers - List all customers (Index page)
-        [Authorize(Roles = "Admin")]
-        [HttpGet]
-        public ActionResult<IEnumerable<CustomerController>> GetCustomers()
-        {
-            var customers = _unitOfWork.Customers.GetAll();
-            return Ok(customers);   // return 200 OK with the list of customers
-        }
+		// GET: api/customers
+		[Authorize(Roles = "Admin")]
+		[HttpGet]
+		public ActionResult<IEnumerable<Customer>> GetAllCustomers()
+		{
+			// Store the list of customers retrieved from the repository
+			var customers = _unitOfWork.Customers.GetAll();
 
-        // GET /api/customers/{id} - Get customer details (Details page)
-        [Authorize]
-        [HttpGet("{id}")]
-        public ActionResult GetCustomerById(int i)
-        {
-            var customer = _unitOfWork.Customers.GetById(i);
+			// Return the list of customers and HTTP 200 OK status
+			return Ok(customers);
+		}
 
-            // if customer does not exist
-            if (customer == null)
-            {
-                return NotFound(); // return 404 Not Found
-            }
-            return Ok(customer); // return 200 OK with the customer details
-        }
+		// GET: api/customers/{id}
+		[Authorize]
+		[HttpGet("{id}")]
+		public ActionResult GetCustomerById([FromRoute] int id)
+		{
+			var customer = _unitOfWork.Customers.GetById(id);
 
-        // POST /api/customers - Create customer (form)
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public ActionResult<Customer> CreateCustomer([FromBody] Customer customer)
-        {
-            // if request body, which is the customer object is null,
-            if (customer == null)
-            {
-                return BadRequest(); // return 400 Bad Request
-            }
-            _unitOfWork.Customers.Add(customer);
-            _unitOfWork.Complete(); // save changes to the database
-            // return 201 Created
-            return CreatedAtAction(nameof(GetCustomers), new { id = customer.Id }, customer);
-        }
+			if (customer == null)
+			{
+				// return HTTP 404 Not Found if the customer does not exist
+				return NotFound();
+			}
 
-        // PUT /api/customers/{id} - Update customer (Edit form)
-        [Authorize]
-        [HttpPut("{id}")]
-        public ActionResult<Customer> UpdateCustomer(int id, [FromBody] Customer updatedCustomer)
-        {
-            var customer = _unitOfWork.Customers.GetById(id);
+			// return the customer and HTTP 200 OK status
+			return Ok(customer);
+		}
 
-            // if customer does not exist (no customer with the given id)
-            if (customer == null)
-            {
-                return NotFound(); // return 404 Not Found
-            }
+		// POST: api/customers
+		[Authorize(Roles = "Admin")]
+		[HttpPost]
+		public ActionResult<Customer> CreateCustomer([FromBody] Customer customer)
+		{
+			if (customer == null)
+			{
+				// return HTTP 400 Bad Request if the customer is null
+				return BadRequest();
+			}
 
-            // otherwise,
-            // update customer properties
-            customer.Role = updatedCustomer.Role;
+			_unitOfWork.Customers.Add(customer);
+			_unitOfWork.Complete();
 
-            customer.UserName = updatedCustomer.UserName;
-            customer.Password = updatedCustomer.Password;
-            
-            _unitOfWork.Customers.Update(customer);
-            _unitOfWork.Complete(); // save changes to the database
-            return Ok(customer); // return 200 OK with the updated customer
-        }
-    }
+			// return HTTP 201 Created status
+			return CreatedAtAction(nameof(GetCustomerById), new { id = customer.Id }, customer);
+		}
+
+		// PUT: api/customers/{id}
+		[Authorize]
+		[HttpPut("{id}")]
+		public ActionResult<Customer> UpdateCustomer([FromRoute] int id, [FromBody] Customer customer)
+		{
+			var existingCustomer = _unitOfWork.Customers.GetById(id);
+
+			if (existingCustomer == null)
+			{
+				// return HTTP 404 Not Found if the customer does not exist
+				return NotFound();
+			}
+
+			// Update the existing customer's properties
+			existingCustomer.Name = customer.Name;
+			existingCustomer.Email = customer.Email;
+			existingCustomer.UserName = customer.UserName;
+			existingCustomer.Password = customer.Password;
+			existingCustomer.Role = customer.Role;
+
+			_unitOfWork.Customers.Update(existingCustomer);
+			_unitOfWork.Complete();
+
+			// return the updated customer and HTTP 200 OK status
+			return Ok(existingCustomer);
+		}
+	}
 }

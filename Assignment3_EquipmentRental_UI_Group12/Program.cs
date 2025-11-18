@@ -12,6 +12,8 @@ builder.Services.AddControllersWithViews();
 // Google login issues an auth cookie for the UI; UI then mints its own JWT when calling the API
 builder.Services.AddAuthentication(opt =>
 {
+	// ---------- Assignment 3 ----------
+	// <A3_Instruction>: Add Google OpenID Connect in Program.cs using Cookie + OIDC schemes.
 	opt.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;   // use cookie for UI session
 	opt.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;        // challenge via Google
 })
