@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36623.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3_EquipmentRental_API_Group12", "Assignment3_EquipmentRental_API_Group12\Assignment3_EquipmentRental_API_Group12.csproj", "{BE949BB2-911A-4736-816C-31EC36E41835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3_EquipmentRental_UI_Group12", "Assignment3_EquipmentRental_UI_Group12\Assignment3_EquipmentRental_UI_Group12.csproj", "{77C765A3-501E-4B87-9C4A-545598B5665C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE949BB2-911A-4736-816C-31EC36E41835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE949BB2-911A-4736-816C-31EC36E41835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE949BB2-911A-4736-816C-31EC36E41835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE949BB2-911A-4736-816C-31EC36E41835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C765A3-501E-4B87-9C4A-545598B5665C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C765A3-501E-4B87-9C4A-545598B5665C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C765A3-501E-4B87-9C4A-545598B5665C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C765A3-501E-4B87-9C4A-545598B5665C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
