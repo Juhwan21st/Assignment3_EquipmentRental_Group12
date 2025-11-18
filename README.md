@@ -7,6 +7,8 @@
 **Team:** Group 12  
 **Programmed by:** Juhwan Seo [8819123]
 
+![HomePage](img/app_home.png)
+
 ---
 
 ## Project Overview
