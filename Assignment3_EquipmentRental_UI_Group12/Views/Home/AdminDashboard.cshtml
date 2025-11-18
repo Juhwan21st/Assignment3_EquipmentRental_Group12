@@ -2,6 +2,29 @@
 	ViewData["Title"] = "Admin Dashboard";
 }
 
-<div class="text-center">
-	<h1 class="display-4">Welcome to Admin Dashboard</h1>
+@* Admin Dashboard - Display admin information and welcome message *@
+<div class="centered-content-container">
+	<div class="content-box">
+		<h3 class="mb-3 about-title">Welcome, @ViewBag.UserName!</h3>
+		<p class="mb-4 about-subtitle">Admin Dashboard</p>
+		
+		<div class="about-info-card">
+			<div class="info-item">
+				<strong>Name:</strong>
+				<span>@ViewBag.UserName</span>
+			</div>
+			<div class="info-item">
+				<strong>Email:</strong>
+				<span>@ViewBag.Email</span>
+			</div>
+			<div class="info-item">
+				<strong>Role:</strong>
+				<span class="role-badge role-admin">@ViewBag.Role</span>
+			</div>
+		</div>
+
+		<div class="mt-4">
+			<p class="dashboard-message">You have full admin access to the system.</p>
+		</div>
+	</div>
 </div>

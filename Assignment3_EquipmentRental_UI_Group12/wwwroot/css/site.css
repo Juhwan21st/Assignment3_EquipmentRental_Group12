@@ -124,3 +124,28 @@ padding: 0.75rem 0;
         color: #f5a742;
         text-decoration: underline;
     }
+
+/* Dashboard styles */
+.dashboard-message {
+    color: #6c757d;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    font-style: italic;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.role-admin {
+    background-color: #f6bd60;
+}
+
+.role-user {
+    background-color: #84a98c;
+}
