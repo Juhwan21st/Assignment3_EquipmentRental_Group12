@@ -7,6 +7,11 @@
 **Team:** Group 12  
 **Programmed by:** Juhwan Seo [8819123]
 
+**Other Repo**:
+[Assignment 1](https://github.com/Juhwan21st/Assignment1_EmployeeAndProductManagementSystem)
+
+**ScreenShots**:
+
 ![HomePage](img/app_home.png)
 ![HomePage](img/admin.png)
 ![HomePage](img/user.png)
